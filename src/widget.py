@@ -10,7 +10,6 @@ def mask_account_card(info_cards: str) -> str:
 
     if len(info_card) > 2:
         type_card = info_card[0] + " " + info_card[1]
-
     else:
         type_card, number_cards = info_card
 
