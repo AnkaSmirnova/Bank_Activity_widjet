@@ -4,13 +4,13 @@ from src.widget import mask_account_card, get_date
 """Программа запрашивает у пользователя ввод номера карты и
 номера счета, затем выводит маскированные значения."""
 
-user_card_number = input("Введите номер карты (16 цифр): ")
-
-user_account_number = input("Введите номер счета (20 цифр): ")
 
 if __name__ == "__main__":
-    print(get_mask_card_number(user_card_number))
-    print(get_mask_account(user_account_number))
+    print(get_mask_card_number("7000792289606361"))
+    print(get_mask_account("73654108430135874305"))
 
 
-
+    print(mask_account_card("Visa Platinum 7000792289606361"))
+    print(mask_account_card("MasterCard 7158300734726758"))
+    print(mask_account_card("Счет 35383033474447895560"))
+    print(get_date("2024-03-11T02:26:18.671407"))

@@ -1,19 +1,25 @@
-from masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_card_number, get_mask_account
 
 def mask_account_card(info_cards: str) -> str:
     """Функция принимает строку, содержащую тип и номер (карты или счета).
     В зависимости от типа данных, возвращает замаскированный номер."""
     info_card = info_cards.split()
 
-    if len(info_card) != 2:
-        return "Неверный формат. Ожидается тип и номер"
+    if len(info_card) > 2:
+        type_card = info_card[0] + ' ' + info_card[1]
 
-    type_card, number_cards = info_card
+    else:
+        type_card, number_cards = info_card
 
-    if type_card.lower() in ['visa', 'maestro', 'mastercard']:
-        return get_mask_card_number(number_cards)
-    elif type_card.lower() == 'счет':
-        return get_mask_account(number_cards)
+
+    number_cards = info_card[-1]
+
+    if info_card[0].lower() in ['visa', 'maestro', 'mastercard']:
+        masked_number = get_mask_card_number(number_cards)
+        return f"{type_card} {masked_number}"
+    elif info_card[0].lower() == 'счет':
+        masked_number = get_mask_account(number_cards)
+        return f"{type_card} {masked_number}"
     else:
         return "Неизвестный тип. Поддерживаемые типы: карта, счет."
 
