@@ -31,6 +31,5 @@ def get_date(date: str) -> str:
     try:
         date_of_operation = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
         return date_of_operation.strftime("%d.%m.%Y")
-
     except ValueError:
         return "Некорректный формат даты."
