@@ -1,6 +1,5 @@
-from src.processing import filter_by_state
-from src.widget import get_date, mask_account_card
 from src.processing import filter_by_state, sort_by_date
+from src.widget import get_date, mask_account_card
 
 """Программа запрашивает у пользователя ввод номера карты или
 номера счета, затем выводит маскированные значения."""

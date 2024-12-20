@@ -4,9 +4,11 @@ version = "0.1.0"
 description = ""
 authors = ["Anna Smirnova <you@example.com>"]
 readme = "README.md"
+packages = [{ include = "src/bank_activity_widget" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pytest = "^8.3.4"
 
 
 [tool.poetry.group.lint.dependencies]

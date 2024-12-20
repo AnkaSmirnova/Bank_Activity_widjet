@@ -1,42 +1,48 @@
 import pytest
 
+
 # Фикстура для корректного номера карты
 @pytest.fixture
-def valid_card_number():
+def valid_card_number() -> str:
     return "1234567812345678"
+
 
 # Фикстура для некорректного номера карты (слишком короткий)
 @pytest.fixture
-def invalid_card_number_short():
+def invalid_card_number_short() -> str:
     return "12345"
+
 
 # Фикстура для некорректного номера карты (с нецифровыми символами)
 @pytest.fixture
-def invalid_card_number_non_digits():
+def invalid_card_number_non_digits() -> str:
     return "12345678ABCD5678"
+
 
 # Фикстура для корректных дат
 @pytest.fixture
-def valid_dates():
+def valid_dates() -> list:
     return [
         ("2024-12-20T14:30:45.123456", "20.12.2024"),
         ("2022-03-15T08:00:00.000000", "15.03.2022"),
     ]
 
+
 # Фикстура для некорректных дат
 @pytest.fixture
-def invalid_dates():
+def invalid_dates() -> list:
     return [
         ("2024-12-20 14:30:45", "Некорректный формат даты."),
         ("2024-12-20T14:30", "Некорректный формат даты."),
         ("2024-12-32T14:30:45", "Некорректный формат даты."),
         ("20th December 2024", "Некорректный формат даты."),
-        ("", "Некорректный формат даты.")
+        ("", "Некорректный формат даты."),
     ]
+
 
 # Фикстура с тестовыми данными
 @pytest.fixture
-def transactions():
+def transactions() -> list:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},

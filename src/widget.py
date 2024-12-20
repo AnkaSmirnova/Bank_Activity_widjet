@@ -9,7 +9,7 @@ def mask_account_card(info_cards: str) -> str:
     info_card = info_cards.split()
 
     if len(info_card) < 2 or not info_card[-1].isdigit():
-        raise ValueError ("Некорректный ввод.")
+        raise ValueError("Некорректный ввод.")
 
     type_card = " ".join(info_card[:-1])
     number_cards = info_card[-1]
@@ -33,4 +33,4 @@ def get_date(date: str) -> str:
         date_of_operation = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
         return date_of_operation.strftime("%d.%m.%Y")
     except ValueError:
-        raise ValueError ("Некорректный формат даты.")
+        raise ValueError("Некорректный формат даты.")
