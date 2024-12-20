@@ -3,20 +3,7 @@ import pytest
 
 from src.masks import get_mask_account, get_mask_card_number
 
-# Фикстуры
-@pytest.fixture
-def valid_card_number():
-    return "1234567812345678"
 
-@pytest.fixture
-def invalid_card_number_short():
-    return "12345"
-
-@pytest.fixture
-def invalid_card_number_non_digits():
-    return "12345678ABCD5678"
-
-# Тесты
 def test_valid_card_number(valid_card_number):
     assert get_mask_card_number(valid_card_number) == "1234 56** **** 5678"
 
