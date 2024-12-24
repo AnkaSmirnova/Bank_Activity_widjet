@@ -8,14 +8,15 @@ def mask_account_card(info_cards: str) -> str:
     В зависимости от типа данных, возвращает замаскированный номер."""
     info_card = info_cards.split()
 
-    if len(info_card) > 2:
-        type_card = info_card[0] + " " + info_card[1]
-    else:
-        type_card, number_cards = info_card
+    if len(info_card) < 2 or not info_card[-1].isdigit():
+        raise ValueError("Некорректный ввод.")
 
+    type_card = " ".join(info_card[:-1])
     number_cards = info_card[-1]
 
-    if info_card[0].lower() in ["visa", "maestro", "mastercard"]:
+    card_types = ["visa classic", "visa platinum", "visa gold", "maestro", "mastercard"]
+
+    if type_card.lower() in card_types:
         masked_number = get_mask_card_number(number_cards)
         return f"{type_card} {masked_number}"
     elif info_card[0].lower() == "счет":
@@ -32,4 +33,4 @@ def get_date(date: str) -> str:
         date_of_operation = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
         return date_of_operation.strftime("%d.%m.%Y")
     except ValueError:
-        return "Некорректный формат даты."
+        raise ValueError("Некорректный формат даты.")
