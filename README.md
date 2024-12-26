@@ -93,6 +93,51 @@
       print(sort_by_date(data))  # [{'date': '2024-12-13'}, {'date': '2024-12-12'}]
       ```
 
+7. **`filter_by_currency(transactions, currency_code)`**
+   Фильтрует транзакции по валюте.
+   **Параметры:**
+   - `transactions` — список транзакций. Каждая транзакция должна быть представлена в виде словаря с полем `operationAmount`, которое содержит информацию о валюте в поле `currency`.
+   - `currency_code` — код валюты, например `"USD"` или `"RUB"`, по которому будет выполняться фильтрация.
+
+   **Пример:**
+   ```
+   transactions = [
+       {"id": 1, "operationAmount": {"amount": "100", "currency": {"code": "USD"}}, "description": "Перевод организации"},
+       {"id": 2, "operationAmount": {"amount": "200", "currency": {"code": "RUB"}}, "description": "Перевод с карты на карту"},
+       {"id": 3, "operationAmount": {"amount": "150", "currency": {"code": "USD"}}, "description": "Оплата товаров"},
+   ]
+   ```
+
+8. **`transaction_descriptions(transactions)`**
+   Извлекает описания всех транзакций.
+   **Параметры:**
+   - `transactions` — список транзакций, где каждая транзакция представлена в виде словаря с ключом `description`, содержащим описание операции.
+
+   **Пример использования:**
+
+```
+transactions = [
+    {"id": 1, "operationAmount": {"amount": "100", "currency": {"code": "USD"}}, "description": "Перевод организации"},
+    {"id": 2, "operationAmount": {"amount": "200", "currency": {"code": "RUB"}}, "description": "Перевод с карты на карту"},
+    {"id": 3, "operationAmount": {"amount": "150", "currency": {"code": "USD"}}, "description": "Оплата товаров"},
+]
+```
+
+9. **`card_number_generator(start, end)`**
+   Генерирует номера банковских карт в формате `XXXX XXXX XXXX XXXX` в заданном диапазоне от `0000 0000 0000 0001` до `9999 9999 9999 9999`.
+
+   **Параметры:**
+   - `start` — начальный номер в диапазоне (включительно).
+   - `end` — конечный номер в диапазоне (включительно).
+
+   **Пример:**
+
+```
+# Генерация номеров карт в диапазоне от 1 до 10
+for card_number in card_number_generator(1, 10):
+    print(card_number)
+```
+
 
 ## Тестирование
 

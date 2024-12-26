@@ -1,3 +1,4 @@
 [flake8]
 max-line-length = 119
-exclude = .git, -pycache_, README.md
+exclude = .git, -pycache_, README.md,  build, dist, venv, .venv, site-packages
+ignore = E231, E261, E122
