@@ -51,7 +51,7 @@ def transactions() -> list:
     ]
 
 
-# Фикстура, которая будет создавать данные для теста генератора
+# Фикстура, с тестовыми данными для генераторов
 @pytest.fixture
 def sample_transactions():
     return [
@@ -96,7 +96,7 @@ def sample_transactions():
                     "code": "EUR"
                 }
             },
-            "description": "Оплата за услугу",
+            "description": "Перевод с карты на карту",
             "from": "Счет 12345678901234567890",
             "to": "Счет 98765432109876543210"
         }
